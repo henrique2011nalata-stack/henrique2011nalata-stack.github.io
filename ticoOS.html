@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICO.CO | TicoOS Hyprland</title>
+    <style>
+        /* CONFIGURAÇÃO DE VARIÁVEIS FISICAS DO SISTEMA */
+        :root {
+            --bg-principal: #ffffff;
+            --texto-principal: #1a1a1a;
+            --texto-secundario: #555555;
+            --bg-card: #f8f9fa;
+            --titulo-card: #000000;
+            --borda-comum: #e5e5e5;
+            --azul-arch: #1793d1;
+        }
+
+        /* CIRÚRGIA DO MODO ESCURO (INTERRUPTOR DE SILÍCIO) */
+        [data-theme="dark"] {
+            --bg-principal: #0d0f14;
+            --texto-principal: #cdd6f4;
+            --texto-secundario: #a6adc8;
+            --bg-card: #181825;
+            --titulo-card: #ffffff;
+            --borda-comum: #313244;
+        }
+
+        /* APLICAÇÃO DOS ESTILOS DINÂMICOS */
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--borda-comum);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--azul-arch);
+            letter-spacing: 1px;
+        }
+
+        /* BOTÃO DE ALTERNÂNCIA (MODO ESCURO / CLARO) */
+        .theme-toggle {
+            background-color: var(--bg-card);
+            color: var(--texto-principal);
+            border: 2px solid var(--azul-arch);
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--azul-arch);
+            color: #ffffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--texto-secundario);
+            margin-bottom: 40px;
+        }
+
+        .btn-download {
+            background-color: var(--azul-arch);
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: 0px 4px 15px rgba(23, 147, 209, 0.3);
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background-color: #0f70a1;
+            box-shadow: 0px 6px 25px rgba(23, 147, 209, 0.6);
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--azul-arch);
+            padding: 25px;
+            border-radius: 8px;
+            width: 280px;
+            text-align: left;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card h3 {
+            color: var(--titulo-card);
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--texto-secundario);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            font-size: 14px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--borda-comum);
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TICO.CO</div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="font-size: 14px; color: var(--azul-arch); font-weight: bold; letter-spacing: 1px;">LAB // BRODOWSKI</div>
+            <!-- INTERRUPTOR VISÍVEL -->
+            <button class="theme-toggle" id="themeBtn">Alternar Modo</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>TicoOS v1.0</h1>
+        <p>A edição definitiva em Hyprland. Extraia performance extrema de qualquer silício.</p>
+        <br><br>
+        <!-- CIRCUITO ATUALIZADO: "GRÁTIS" REMOVIDO COM SUCESSO -->
+        <a href="#" class="btn-download">Baixar TicoOS .ISO</a>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>Animações em Wayland</h3>
+            <p>Gerenciamento dinâmico de janelas com a suavidade do Hyprland. Produtividade máxima sem travar.</p>
+        </div>
+        <div class="card">
+            <h3>Ultra Leve</h3>
+            <p>Consome apenas 450MB de memória RAM no boot. Perfeito para reviver notebooks antigos e Celerons de escritório.</p>
+        </div>
+        <div class="card">
+            <h3>Pronto para o Jogo</h3>
+            <p>Suporte nativo ao Gamescope e Flatpak. Abra os clássicos da Valve a mais de 100 FPS cravados no controle.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 TICO.CO - Feito com ajuda de IA.
+    </footer>
+
+    <!-- SCRIPT DE CHAVEAMENTO DE CIRCUITO -->
+    <script>
+        const btn = document.getElementById("themeBtn");
+        btn.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            if (currentTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "light");
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        });
+    </script>
+
+</body>
+</html>
