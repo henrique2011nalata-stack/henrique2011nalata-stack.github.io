@@ -201,6 +201,21 @@
             margin: 0 auto;
         }
 
+        .nav-link-ticoos {
+            color: var(--azul-arch, #1793d1);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--azul-arch, #1793d1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link-ticoos:hover {
+            background-color: var(--azul-arch, #1793d1);
+            color: #ffffff;
+        }
+        
         .convite-discord {
             margin-top: 25px;
             font-weight: bold;
@@ -221,6 +236,7 @@
     <header>
         <div class="logo">TICO.CO</div>
         <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="TICO.CO.html" class="nav-link-ticoos">TicoOS</a>
             <div style="font-size: 14px; color: var(--azul-arch); font-weight: bold; letter-spacing: 1px;">I LOVE TEAM FORTRESS 2</div>
             <!-- INTERRUPTOR VISÍVEL -->
             <button class="theme-toggle" id="themeBtn">Alternar claro/escuro</button>
