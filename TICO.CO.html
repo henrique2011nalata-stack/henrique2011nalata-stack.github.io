@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICO.CO | TicoOS Hyprland</title>
+    <title>TICO.CO | Inovação & Tecnologia Independente</title>
     <style>
         /* CONFIGURAÇÃO DE VARIÁVEIS DO SISTEMA */
         :root {
@@ -28,14 +28,14 @@
 
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: var(--bg-principal);
             color: var(--texto-principal);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -58,22 +58,40 @@
             font-weight: 900;
             color: var(--azul-arch);
             letter-spacing: 1px;
+            text-decoration: none;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .tagline {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--azul-arch);
             font-weight: bold;
             letter-spacing: 1px;
         }
 
-        /* BOTÃO DE ALTERNÂNCIA (MODO ESCURO / CLARO) */
+        /* NAVEGAÇÃO E BOTÃO DE TEMA */
+        .nav-link {
+            color: var(--azul-arch);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--azul-arch);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            background-color: var(--azul-arch);
+            color: #ffffff;
+        }
+
         .theme-toggle {
             background-color: var(--bg-card);
             color: var(--texto-principal);
@@ -91,61 +109,63 @@
             color: #ffffff;
         }
 
+        /* HERO SECTION */
         .hero {
             text-align: center;
             padding: 80px 20px 40px 20px;
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 46px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         .hero p {
             font-size: 20px;
             color: var(--texto-secundario);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            line-height: 1.6;
         }
 
         .cta-buttons {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .btn-download {
+        .btn-primary {
             background-color: var(--azul-arch);
             color: #ffffff;
-            padding: 15px 40px;
-            font-size: 18px;
+            padding: 14px 32px;
+            font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             text-transform: uppercase;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             box-shadow: 0px 4px 15px rgba(23, 147, 209, 0.3);
             display: inline-block;
         }
 
-        .btn-download:hover {
+        .btn-primary:hover {
             background-color: #0f70a1;
             box-shadow: 0px 6px 25px rgba(23, 147, 209, 0.6);
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
 
-        /* BOTÃO DO DISCORD */
         .btn-discord {
             background-color: var(--roxo-discord);
             color: #ffffff;
-            padding: 12px 35px;
+            padding: 14px 32px;
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             text-transform: uppercase;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             box-shadow: 0px 4px 15px rgba(88, 101, 242, 0.3);
@@ -155,14 +175,53 @@
         .btn-discord:hover {
             background-color: #4752c4;
             box-shadow: 0px 6px 25px rgba(88, 101, 242, 0.6);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+        }
+
+        /* SOBRE NÓS */
+        .sobre-nos {
+            max-width: 1000px;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid var(--borda-comum);
+            width: 100%;
+        }
+
+        .sobre-nos h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--titulo-card);
+        }
+
+        .sobre-nos p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--texto-secundario);
+            max-width: 850px;
+            margin: 0 auto 15px auto;
+        }
+
+        /* PROJETOS E PILARES */
+        .pilares-section {
+            width: 100%;
+            max-width: 1000px;
+            padding: 40px 20px 60px 20px;
+            text-align: center;
+        }
+
+        .pilares-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--titulo-card);
         }
 
         .features {
             display: flex;
             gap: 20px;
-            max-width: 1000px;
-            padding: 40px 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -172,10 +231,10 @@
             border: 1px solid var(--azul-arch);
             padding: 25px;
             border-radius: 8px;
-            width: 280px;
+            width: 290px;
             text-align: left;
             box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
@@ -185,6 +244,7 @@
         .card h3 {
             color: var(--titulo-card);
             margin-top: 0;
+            margin-bottom: 12px;
             font-size: 20px;
         }
 
@@ -194,42 +254,28 @@
             color: var(--texto-secundario);
         }
 
-        .sobre-nos {
+        /* COMUNIDADE / CONTATO */
+        .comunidade {
+            width: 100%;
             max-width: 1000px;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-top: 2px solid var(--borda-comum);
-            width: 100%;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 60px;
         }
 
-        .sobre-nos h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .comunidade h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
             color: var(--titulo-card);
         }
 
-        .sobre-nos p {
+        .comunidade p {
             font-size: 16px;
-            line-height: 1.8;
             color: var(--texto-secundario);
-            max-width: 800px;
-            margin: 0 auto 15px auto;
-        }
-
-        .convite-discord {
-            margin-top: 25px;
-            font-weight: bold;
-        }
-
-        .convite-discord a {
-            color: var(--roxo-discord);
-            text-decoration: none;
-        }
-
-        .convite-discord a:hover {
-            text-decoration: underline;
+            margin-bottom: 25px;
         }
 
         footer {
@@ -242,7 +288,7 @@
             text-align: center;
         }
 
-        /* AJUSTES RESPONSIVOS */
+        /* RESPONSIVIDADE */
         @media (max-width: 600px) {
             header {
                 flex-direction: column;
@@ -259,6 +305,10 @@
                 font-size: 32px;
             }
 
+            .hero p {
+                font-size: 17px;
+            }
+
             .card {
                 width: 100%;
             }
@@ -268,56 +318,67 @@
 <body>
 
     <header>
-        <div class="logo">TICO.CO</div>
+        <a href="#" class="logo">TICO.CO</a>
         <div class="header-actions">
-            <div class="tagline">I LOVE TEAM FORTRESS 2</div>
-            <button class="theme-toggle" id="themeBtn">Modo Escuro</button>
+            <span class="tagline">I LOVE TEAM FORTRESS 2</span>
+            <a href="ticoos.html" class="nav-link">TicoOS</a>
+            <button class="theme-toggle" id="themeBtn">Alternar tema</button>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>TicoOS beta v1.0.0</h1>
-        <p>A edição definitiva em Hyprland.</p>
-        
-        <div class="cta-buttons">
-            <a href="#" class="btn-download">Baixar ticoOS.ISO (a ISO ainda não funciona)</a>
-            <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Entrar no Discord do ticoOS</a>
-        </div>
-    </section>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>TICO.CO</h1>
+            <p>Inovação, tecnologia e desenvolvimento independente. Criamos software com propósito, leveza e foco em liberdade para o usuário.</p>
+            <div class="cta-buttons">
+                <a href="ticoos.html" class="btn-primary">Conheça o TicoOS</a>
+                <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Comunidade Discord</a>
+            </div>
+        </section>
 
-    <section class="features">
-        <div class="card">
-            <h3>Animações em Wayland</h3>
-            <p>Gerenciamento dinâmico de janelas com a suavidade do Hyprland. Produtividade máxima sem travar.</p>
-        </div>
-        <div class="card">
-            <h3>Ultra Leve</h3>
-            <p>Consome apenas 1GB de memória RAM no boot e trabalha de maneira fluida em discos rígidos.</p>
-        </div>
-        <div class="card">
-            <h3>Pronto para o Jogo</h3>
-            <p>Suporte nativo ao Gamescope e Flatpak. Abra os clássicos da Valve a mais de 100 FPS.</p>
-        </div>
-        <div class="card">
-            <h3>Versão BETA</h3>
-            <p>Sistema operacional em desenvolvimento, pode apresentar instabilidades pontuais.</p>
-        </div>
-    </section>
+        <!-- SOBRE A TICO.CO -->
+        <section class="sobre-nos">
+            <h2>QUEM SOMOS</h2>
+            <p>A <strong>TICO.CO</strong> nasceu da união entre a criatividade e energia irrestrita de um jovem de 14 anos com mentes apaixonadas por tecnologia e arquitetura de software.</p>
+            <p>Acreditamos que softwares não precisam ser pesados ou bloated para serem poderosos. Nossa missão é criar e apoiar ecossistemas de sistemas operacionais, ferramentas open-source e iniciativas independentes que priorizem alta performance, usabilidade moderna e controle total por parte do usuário.</p>
+        </section>
 
-    <section class="sobre-nos">
-        <h3>QUEM SOMOS</h3>
-        <p>A TICO.CO foi criada por um garoto de 14 anos apaixonado por tecnologia e por um desenvolvedor de 22 anos com amplo conhecimento em software. Juntos, criamos o ticoOS com o objetivo de entregar uma distribuição Linux baseada em Nix, leve e com o Hyprland como ambiente gráfico principal.</p>
-        <p class="convite-discord">Quer trocar uma ideia com a gente ou ajudar no projeto? <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer">Entre no nosso servidor do Discord!</a></p>
-    </section>
+        <!-- PROJETOS E PILARES -->
+        <section class="pilares-section">
+            <h2>NOSSOS PILARES</h2>
+            <div class="features">
+                <div class="card">
+                    <h3>Sistemas Open-Source</h3>
+                    <p>Desenvolvimento focado em ecossistemas como o TicoOS — combinando a eficiência do Nix com a modernidade fluida do Hyprland em Wayland.</p>
+                </div>
+                <div class="card">
+                    <h3>Comunidade Ativa</h3>
+                    <p>Espaço aberto no Discord para troca de ideias, feedbacks, suporte técnico e colaboração direta no desenvolvimento dos nossos projetos.</p>
+                </div>
+                <div class="card">
+                    <h3>Desenvolvimento Independente</h3>
+                    <p>Projetos feitos com paixão, sem amarras corporativas, focados naquilo que realmente importa: desempenho e satisfação de quem usa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMUNIDADE & CONTATO -->
+        <section class="comunidade">
+            <h2>FAÇA PARTE DO PROJETO</h2>
+            <p>Tem ideias, sugestões ou quer colaborar com o desenvolvimento do TicoOS e outros projetos?</p>
+            <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Entrar no Discord Oficial</a>
+        </section>
+    </main>
 
     <footer>
-        &copy; 2026 TICO.CO
+        &copy; 2026 TICO.CO — Todos os direitos reservados.
     </footer>
 
+    <!-- SCRIPT DE TEMA (CLARO/ESCURO COM LOCALSTORAGE) -->
     <script>
         const btn = document.getElementById("themeBtn");
 
-        // Função para definir o tema e atualizar o texto do botão
         function setTheme(theme) {
             if (theme === "dark") {
                 document.documentElement.setAttribute("data-theme", "dark");
@@ -330,17 +391,16 @@
             }
         }
 
-        // Carrega o tema salvo do usuário (se existir)
+        // Recupera preferência salva ou detecta do sistema operacional
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
             setTheme(savedTheme);
         } else {
-            // Verifica a preferência do sistema operacional do usuário
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             setTheme(prefersDark ? "dark" : "light");
         }
 
-        // Alterna entre os temas no clique do botão
+        // Alterna o tema no evento de clique
         btn.addEventListener("click", () => {
             const currentTheme = document.documentElement.getAttribute("data-theme");
             setTheme(currentTheme === "dark" ? "light" : "dark");
@@ -349,5 +409,3 @@
 
 </body>
 </html>
-
-```
