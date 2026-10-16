@@ -1,1 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICO.CO | TicoOS Hyprland</title>
+    <style>
+        /* CONFIGURAÇÃO DE VARIÁVEIS DO SISTEMA */
+        :root {
+            --bg-principal: #ffffff;
+            --texto-principal: #1a1a1a;
+            --texto-secundario: #555555;
+            --bg-card: #f8f9fa;
+            --titulo-card: #000000;
+            --borda-comum: #e5e5e5;
+            --azul-arch: #1793d1;
+            --roxo-discord: #5865F2;
+        } 
+        
+        [data-theme="dark"] {
+            --bg-principal: #0d0f14;
+            --texto-principal: #cdd6f4;
+            --texto-secundario: #a6adc8;
+            --bg-card: #181825;
+            --titulo-card: #ffffff;
+            --borda-comum: #313244;
+        }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--borda-comum);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--azul-arch);
+            letter-spacing: 1px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--azul-arch);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* BOTÃO DE ALTERNÂNCIA (MODO ESCURO / CLARO) */
+        .theme-toggle {
+            background-color: var(--bg-card);
+            color: var(--texto-principal);
+            border: 2px solid var(--azul-arch);
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--azul-arch);
+            color: #ffffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--texto-secundario);
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-download {
+            background-color: var(--azul-arch);
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 15px rgba(23, 147, 209, 0.3);
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background-color: #0f70a1;
+            box-shadow: 0px 6px 25px rgba(23, 147, 209, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* BOTÃO DO DISCORD */
+        .btn-discord {
+            background-color: var(--roxo-discord);
+            color: #ffffff;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 15px rgba(88, 101, 242, 0.3);
+            display: inline-block;
+        }
+
+        .btn-discord:hover {
+            background-color: #4752c4;
+            box-shadow: 0px 6px 25px rgba(88, 101, 242, 0.6);
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--azul-arch);
+            padding: 25px;
+            border-radius: 8px;
+            width: 280px;
+            text-align: left;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--titulo-card);
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--texto-secundario);
+        }
+
+        .sobre-nos {
+            max-width: 1000px;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid var(--borda-comum);
+            width: 100%;
+        }
+
+        .sobre-nos h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--titulo-card);
+        }
+
+        .sobre-nos p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--texto-secundario);
+            max-width: 800px;
+            margin: 0 auto 15px auto;
+        }
+
+        .convite-discord {
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .convite-discord a {
+            color: var(--roxo-discord);
+            text-decoration: none;
+        }
+
+        .convite-discord a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            font-size: 14px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--borda-comum);
+            width: 100%;
+            text-align: center;
+        }
+
+        /* AJUSTES RESPONSIVOS */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">TICO.CO</div>
+        <div class="header-actions">
+            <div class="tagline">I LOVE TEAM FORTRESS 2</div>
+            <button class="theme-toggle" id="themeBtn">Modo Escuro</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>TicoOS beta v1.0.0</h1>
+        <p>A edição definitiva em Hyprland.</p>
+        
+        <div class="cta-buttons">
+            <a href="#" class="btn-download">Baixar ticoOS.ISO (a ISO ainda não funciona)</a>
+            <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Entrar no Discord do ticoOS</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>Animações em Wayland</h3>
+            <p>Gerenciamento dinâmico de janelas com a suavidade do Hyprland. Produtividade máxima sem travar.</p>
+        </div>
+        <div class="card">
+            <h3>Ultra Leve</h3>
+            <p>Consome apenas 1GB de memória RAM no boot e trabalha de maneira fluida em discos rígidos.</p>
+        </div>
+        <div class="card">
+            <h3>Pronto para o Jogo</h3>
+            <p>Suporte nativo ao Gamescope e Flatpak. Abra os clássicos da Valve a mais de 100 FPS.</p>
+        </div>
+        <div class="card">
+            <h3>Versão BETA</h3>
+            <p>Sistema operacional em desenvolvimento, pode apresentar instabilidades pontuais.</p>
+        </div>
+    </section>
+
+    <section class="sobre-nos">
+        <h3>QUEM SOMOS</h3>
+        <p>A TICO.CO foi criada por um garoto de 14 anos apaixonado por tecnologia e por um desenvolvedor de 22 anos com amplo conhecimento em software. Juntos, criamos o ticoOS com o objetivo de entregar uma distribuição Linux baseada em Nix, leve e com o Hyprland como ambiente gráfico principal.</p>
+        <p class="convite-discord">Quer trocar uma ideia com a gente ou ajudar no projeto? <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer">Entre no nosso servidor do Discord!</a></p>
+    </section>
+
+    <footer>
+        &copy; 2026 TICO.CO
+    </footer>
+
+    <script>
+        const btn = document.getElementById("themeBtn");
+
+        // Função para definir o tema e atualizar o texto do botão
+        function setTheme(theme) {
+            if (theme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+                btn.textContent = "Modo Claro";
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                btn.textContent = "Modo Escuro";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        // Carrega o tema salvo do usuário (se existir)
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            // Verifica a preferência do sistema operacional do usuário
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Alterna entre os temas no clique do botão
+        btn.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
+    </script>
+
+</body>
+</html>
+
+```
