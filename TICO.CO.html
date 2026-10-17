@@ -3,39 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICO.CO | Inovação & Tecnologia Independente</title>
+    <title>TICO.CO | TicoOS Hyprland</title>
     <style>
-        /* CONFIGURAÇÃO DE VARIÁVEIS DO SISTEMA */
+        /* MODO ESCURO PADRÃO */
         :root {
-            --bg-principal: #ffffff;
-            --texto-principal: #1a1a1a;
-            --texto-secundario: #555555;
-            --bg-card: #f8f9fa;
-            --titulo-card: #000000;
-            --borda-comum: #e5e5e5;
-            --azul-arch: #1793d1;
-            --roxo-discord: #5865F2;
-        } 
-        
-        [data-theme="dark"] {
             --bg-principal: #0d0f14;
             --texto-principal: #cdd6f4;
             --texto-secundario: #a6adc8;
             --bg-card: #181825;
             --titulo-card: #ffffff;
             --borda-comum: #313244;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --azul-arch: #1793d1;
+            --roxo-discord: #5865F2;
+        } 
+        
+        /* MODO CLARO */
+        [data-theme="light"] {
+            --bg-principal: #ffffff;
+            --texto-principal: #1a1a1a;
+            --texto-secundario: #555555;
+            --bg-card: #f8f9fa;
+            --titulo-card: #000000;
+            --borda-comum: #e5e5e5;
         }
 
         body {
             background-color: var(--bg-principal);
             color: var(--texto-principal);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -51,6 +48,7 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--borda-comum);
+            box-sizing: border-box;
         }
 
         .logo {
@@ -58,31 +56,6 @@
             font-weight: 900;
             color: var(--azul-arch);
             letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* NAVEGAÇÃO E BOTÃO DE TEMA */
-        .nav-link {
-            color: var(--azul-arch);
-            font-weight: bold;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--azul-arch);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .nav-link:hover {
-            background-color: var(--azul-arch);
-            color: #ffffff;
         }
 
         .theme-toggle {
@@ -94,7 +67,7 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 20px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: 0.3s;
         }
 
         .theme-toggle:hover {
@@ -102,65 +75,56 @@
             color: #ffffff;
         }
 
-        /* HERO SECTION */
         .hero {
             text-align: center;
-            padding: 80px 20px 40px 20px;
-            max-width: 850px;
+            padding: 80px 20px;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 46px;
+            font-size: 48px;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            line-height: 1.2;
         }
 
         .hero p {
             font-size: 20px;
             color: var(--texto-secundario);
-            margin-bottom: 35px;
-            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
+        .btn-download {
             background-color: var(--azul-arch);
             color: #ffffff;
-            padding: 14px 32px;
-            font-size: 16px;
+            padding: 15px 40px;
+            font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
             text-transform: uppercase;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: 0.3s;
             box-shadow: 0px 4px 15px rgba(23, 147, 209, 0.3);
             display: inline-block;
+            margin-bottom: 15px;
         }
 
-        .btn-primary:hover {
+        .btn-download:hover {
             background-color: #0f70a1;
             box-shadow: 0px 6px 25px rgba(23, 147, 209, 0.6);
-            transform: translateY(-2px);
+            transform: scale(1.05);
         }
 
         .btn-discord {
             background-color: var(--roxo-discord);
             color: #ffffff;
-            padding: 14px 32px;
+            padding: 12px 35px;
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
             text-transform: uppercase;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: 0.3s;
             box-shadow: 0px 4px 15px rgba(88, 101, 242, 0.3);
             display: inline-block;
         }
@@ -168,53 +132,14 @@
         .btn-discord:hover {
             background-color: #4752c4;
             box-shadow: 0px 6px 25px rgba(88, 101, 242, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* SOBRE NÓS */
-        .sobre-nos {
-            max-width: 1000px;
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 2px solid var(--borda-comum);
-            width: 100%;
-        }
-
-        .sobre-nos h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--titulo-card);
-        }
-
-        .sobre-nos p {
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--texto-secundario);
-            max-width: 850px;
-            margin: 0 auto 15px auto;
-        }
-
-        /* PROJETOS E PILARES */
-        .pilares-section {
-            width: 100%;
-            max-width: 1000px;
-            padding: 40px 20px 60px 20px;
-            text-align: center;
-        }
-
-        .pilares-section h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--titulo-card);
+            transform: scale(1.05);
         }
 
         .features {
             display: flex;
             gap: 20px;
+            max-width: 1000px;
+            padding: 40px 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -224,20 +149,15 @@
             border: 1px solid var(--azul-arch);
             padding: 25px;
             border-radius: 8px;
-            width: 290px;
+            width: 280px;
             text-align: left;
             box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            transition: 0.3s;
         }
 
         .card h3 {
             color: var(--titulo-card);
             margin-top: 0;
-            margin-bottom: 12px;
             font-size: 20px;
         }
 
@@ -245,30 +165,6 @@
             font-size: 15px;
             line-height: 1.5;
             color: var(--texto-secundario);
-        }
-
-        /* COMUNIDADE / CONTATO */
-        .comunidade {
-            width: 100%;
-            max-width: 1000px;
-            padding: 50px 20px;
-            text-align: center;
-            border-top: 2px solid var(--borda-comum);
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            margin-bottom: 60px;
-        }
-
-        .comunidade h2 {
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: var(--titulo-card);
-        }
-
-        .comunidade p {
-            font-size: 16px;
-            color: var(--texto-secundario);
-            margin-bottom: 25px;
         }
 
         footer {
@@ -279,139 +175,129 @@
             border-top: 1px solid var(--borda-comum);
             width: 100%;
             text-align: center;
+            box-sizing: border-box;
         }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
+        .sobre-nos {
+            max-width: 1000px;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid var(--borda-comum);
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-            .header-actions {
-                flex-direction: column;
-                gap: 10px;
-            }
+        .sobre-nos h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--titulo-card);
+        }
 
-            .hero h1 {
-                font-size: 32px;
-            }
+        .sobre-nos p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--texto-secundario);
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-            .hero p {
-                font-size: 17px;
-            }
+        .nav-link-ticoos {
+            color: var(--azul-arch, #1793d1);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--azul-arch, #1793d1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
 
-            .card {
-                width: 100%;
-            }
+        .nav-link-ticoos:hover {
+            background-color: var(--azul-arch, #1793d1);
+            color: #ffffff;
+        }
+        
+        .convite-discord {
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .convite-discord a {
+            color: var(--roxo-discord);
+            text-decoration: none;
+        }
+
+        .convite-discord a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">TICO.CO</a>
-        <div class="header-actions">
-            <a href="index.html" class="nav-link">TicoOS</a>
-            <button class="theme-toggle" id="themeBtn">Modo Escuro</button>
+        <div class="logo">TICO.CO</div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="TICO.CO.html" class="nav-link-ticoos">TicoOS</a>
+            <div style="font-size: 14px; color: var(--azul-arch); font-weight: bold; letter-spacing: 1px;">I LOVE TEAM FORTRESS 2</div>
+            <button class="theme-toggle" id="themeBtn">Alternar claro/escuro</button>
         </div>
     </header>
 
-    <main>
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <h1>TICO.CO</h1>
-            <p>Inovação, tecnologia e desenvolvimento independente.</p>
-            <div class="cta-buttons">
-                <a href="ticoos.html" class="btn-primary">Conheça o TicoOS</a>
-                <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Comunidade Discord</a>
-            </div>
-        </section>
+    <section class="hero">
+        <h1>TicoOS beta v1.0.0</h1>
+        <p>A edição definitiva em Hyprland.</p>
+        <br><br>
+     
+        <a href="#" class="btn-download">Baixar ticoOS.ISO (a ISO ainda não funciona)</a>
+        <br>
+        <a href="https://discord.gg/RcHbENp8wj" target="_blank" class="btn-discord">Entrar no Discord do ticoOS</a>
+    </section>
 
-        <!-- SOBRE A TICO.CO -->
-        <section class="sobre-nos">
-            <h2>QUEM SOMOS</h2>
-            <p>A <strong>TICO.CO</strong> é um grupo criado para reunir Henrique Simsic Cunha (15 anos), responsável pela programação inicial, ideias e experiência de uso, e João Pedro Simsic Cunha (22 anos), responsável pela arquitetura profunda, estabilidade do TicoOS e organização do projeto.</p>
-            <p>Nossos projetos podem levar um tempo para serem concluídos, pois somos uma equipe independente composta por duas pessoas dedicadas.</p>
-        </section>
+    <section class="features">
+        <div class="card">
+            <h3>Animações em Wayland</h3>
+            <p>Gerenciamento dinâmico de janelas com a suavidade do Hyprland. Produtividade máxima sem travar.</p>
+        </div>
+        <div class="card">
+            <h3>Ultra Leve</h3>
+            <p>Consome apenas 1GB de memória RAM no boot e trabalha de maneira fluida em discos rigidos .</p>
+        </div>
+        <div class="card">
+            <h3>Pronto para o Jogo</h3>
+            <p>Suporte nativo ao Gamescope e Flatpak. Abra os clássicos da Valve a mais de 100 FPS.</p>
+        </div>
+        <div class="card">
+            <h3>Versão BETA</h3>
+            <p>Sistema operacional em desenvolvimento pode ocorrer problemas ou instabilidade.</p>
+        </div>
+    </section>
 
-        <!-- PROJETOS E PILARES -->
-        <section class="pilares-section">
-            <h2>NOSSOS PILARES</h2>
-            <div class="features">
-                <div class="card">
-                    <h3>Sistemas Open-Source</h3>
-                    <p>Desenvolvimento focado em ecossistemas como o TicoOS — combinando a eficiência do Nix com a modernidade fluida do Hyprland em Wayland.</p>
-                </div>
-                <div class="card">
-                    <h3>Comunidade Aberta</h3>
-                    <p>Espaço aberto no Discord para troca de ideias, feedbacks, suporte técnico e colaboração direta no desenvolvimento dos nossos projetos.</p>
-                </div>
-                <div class="card">
-                    <h3>Desenvolvimento Independente</h3>
-                    <p>Projetos feitos com paixão, sem amarras corporativas, focados naquilo que realmente importa: desempenho e satisfação de quem usa.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMUNIDADE & CONTATO -->
-        <section class="comunidade">
-            <h2>FAÇA PARTE DO PROJETO</h2>
-            <p>Tem ideias, sugestões ou quer colaborar com o desenvolvimento do TicoOS e outros projetos?</p>
-            <a href="https://discord.gg/RcHbENp8wj" target="_blank" rel="noopener noreferrer" class="btn-discord">Entrar no Discord Oficial</a>
-        </section>
-    </main>
+    <section class="sobre-nos">
+        <h3>QUEM SOMOS</h3>
+        <p>A TICO.CO foi criada por um moleque de 14 anos com muito tempo e uma mente muito agitada e por um preguiçoso de 22 anos que tem alto conhecimento em software, juntos criamos o ticoOS que tem o intuito de ser uma distro de linux que usa nix e seja leve e use o hyprland como interface.</p>
+        <p class="convite-discord">Quer trocar uma ideia com a gente ou ajudar no projeto? <a href="https://discord.gg/RcHbENp8wj" target="_blank">entre no nosso servidor do Discord!</a></p>
+    </section>
 
     <footer>
-        &copy; 2026 TICO.CO — Todos os direitos reservados.
+        &copy; 2026 TICO.CO
     </footer>
 
-    <!-- SCRIPT DE TEMA SINCRONIZADO COM O SISTEMA OPERACIONAL -->
     <script>
         const btn = document.getElementById("themeBtn");
         const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-        function setTheme(theme) {
-            if (theme === "dark") {
-                document.documentElement.setAttribute("data-theme", "dark");
-                btn.textContent = "Modo Claro";
-            } else {
+        function applyTheme(theme) {
+            if (theme === "light") {
                 document.documentElement.setAttribute("data-theme", "light");
-                btn.textContent = "Modo Escuro";
-            }
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem("theme");
-
-            // Se o usuário tem uma escolha salva, mantém essa escolha
-            if (savedTheme) {
-                setTheme(savedTheme);
             } else {
-                // Caso contrário, sincroniza diretamente com o sistema operacional
-                setTheme(systemPrefersDark.matches ? "dark" : "light");
+                document.documentElement.removeAttribute("data-theme");
             }
         }
 
-        // Sincroniza automaticamente se o sistema mudar de tema enquanto o usuário navega
-        systemPrefersDark.addEventListener("change", (e) => {
-            if (!localStorage.getItem("theme")) {
-                setTheme(e.matches ? "dark" : "light");
-            }
-        });
-
-        // Clique no botão alterna e salva no localStorage a escolha manual
-        btn.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-            setTheme(newTheme);
-            localStorage.setItem("theme", newTheme);
-        });
-
-        // Inicializa o tema na abertura da página
-        initTheme();
-    </script>
-
-</body>
-</html>
+        // Detecta o tema do sistema ou o salvo pelo usuario
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            apply
