@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TICO.CO | TicoOS Hyprland</title>
     <style>
-        /* MODO ESCURO PADRÃO */
+        /* CONFIGURAÇÃO DE VARIÁVEIS FISICAS DO SISTEMA */
         :root {
-            --bg-principal: #0d0f14;
-            --texto-principal: #cdd6f4;
-            --texto-secundario: #a6adc8;
-            --bg-card: #181825;
-            --titulo-card: #ffffff;
-            --borda-comum: #313244;
-            --azul-arch: #1793d1;
-            --roxo-discord: #5865F2;
-        } 
-        
-        /* MODO CLARO */
-        [data-theme="light"] {
             --bg-principal: #ffffff;
             --texto-principal: #1a1a1a;
             --texto-secundario: #555555;
             --bg-card: #f8f9fa;
             --titulo-card: #000000;
             --borda-comum: #e5e5e5;
+            --azul-arch: #1793d1;
+            --roxo-discord: #5865F2;
+        } 
+        
+        [data-theme="dark"] {
+            --bg-principal: #0d0f14;
+            --texto-principal: #cdd6f4;
+            --texto-secundario: #a6adc8;
+            --bg-card: #181825;
+            --titulo-card: #ffffff;
+            --borda-comum: #313244;
         }
 
         body {
@@ -48,7 +47,6 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--borda-comum);
-            box-sizing: border-box;
         }
 
         .logo {
@@ -58,6 +56,7 @@
             letter-spacing: 1px;
         }
 
+        /* BOTÃO DE ALTERNÂNCIA (MODO ESCURO / CLARO) */
         .theme-toggle {
             background-color: var(--bg-card);
             color: var(--texto-principal);
@@ -115,6 +114,7 @@
             transform: scale(1.05);
         }
 
+        /* BOTÃO DO DISCORD */
         .btn-discord {
             background-color: var(--roxo-discord);
             color: #ffffff;
@@ -175,7 +175,6 @@
             border-top: 1px solid var(--borda-comum);
             width: 100%;
             text-align: center;
-            box-sizing: border-box;
         }
 
         .sobre-nos {
@@ -184,7 +183,6 @@
             text-align: center;
             border-top: 2px solid var(--borda-comum);
             width: 100%;
-            box-sizing: border-box;
         }
 
         .sobre-nos h3 {
@@ -203,21 +201,6 @@
             margin: 0 auto;
         }
 
-        .nav-link-ticoos {
-            color: var(--azul-arch, #1793d1);
-            font-weight: bold;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--azul-arch, #1793d1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link-ticoos:hover {
-            background-color: var(--azul-arch, #1793d1);
-            color: #ffffff;
-        }
-        
         .convite-discord {
             margin-top: 25px;
             font-weight: bold;
@@ -238,66 +221,4 @@
     <header>
         <div class="logo">TICO.CO</div>
         <div style="display: flex; align-items: center; gap: 20px;">
-            <a href="TICO.CO.html" class="nav-link-ticoos">TicoOS</a>
-            <div style="font-size: 14px; color: var(--azul-arch); font-weight: bold; letter-spacing: 1px;">I LOVE TEAM FORTRESS 2</div>
-            <button class="theme-toggle" id="themeBtn">Alternar claro/escuro</button>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h1>TicoOS beta v1.0.0</h1>
-        <p>A edição definitiva em Hyprland.</p>
-        <br><br>
-     
-        <a href="#" class="btn-download">Baixar ticoOS.ISO (a ISO ainda não funciona)</a>
-        <br>
-        <a href="https://discord.gg/RcHbENp8wj" target="_blank" class="btn-discord">Entrar no Discord do ticoOS</a>
-    </section>
-
-    <section class="features">
-        <div class="card">
-            <h3>Animações em Wayland</h3>
-            <p>Gerenciamento dinâmico de janelas com a suavidade do Hyprland. Produtividade máxima sem travar.</p>
-        </div>
-        <div class="card">
-            <h3>Ultra Leve</h3>
-            <p>Consome apenas 1GB de memória RAM no boot e trabalha de maneira fluida em discos rigidos .</p>
-        </div>
-        <div class="card">
-            <h3>Pronto para o Jogo</h3>
-            <p>Suporte nativo ao Gamescope e Flatpak. Abra os clássicos da Valve a mais de 100 FPS.</p>
-        </div>
-        <div class="card">
-            <h3>Versão BETA</h3>
-            <p>Sistema operacional em desenvolvimento pode ocorrer problemas ou instabilidade.</p>
-        </div>
-    </section>
-
-    <section class="sobre-nos">
-        <h3>QUEM SOMOS</h3>
-        <p>A TICO.CO foi criada por um moleque de 14 anos com muito tempo e uma mente muito agitada e por um preguiçoso de 22 anos que tem alto conhecimento em software, juntos criamos o ticoOS que tem o intuito de ser uma distro de linux que usa nix e seja leve e use o hyprland como interface.</p>
-        <p class="convite-discord">Quer trocar uma ideia com a gente ou ajudar no projeto? <a href="https://discord.gg/RcHbENp8wj" target="_blank">entre no nosso servidor do Discord!</a></p>
-    </section>
-
-    <footer>
-        &copy; 2026 TICO.CO
-    </footer>
-
-    <script>
-        const btn = document.getElementById("themeBtn");
-        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-        function applyTheme(theme) {
-            if (theme === "light") {
-                document.documentElement.setAttribute("data-theme", "light");
-            } else {
-                document.documentElement.removeAttribute("data-theme");
-            }
-        }
-
-        // Detecta o tema do sistema ou o salvo pelo usuario
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            applyTheme(savedTheme);
-        } else {
-            apply
+            <div style="font-size: 14px; color: var(--azul-arch); font-weight: bold; letter-spacing
